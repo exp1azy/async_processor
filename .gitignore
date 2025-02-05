@@ -1,0 +1,5 @@
+.vs/
+AsyncProcessor/bin/
+AsyncProcessor/obj/
+AsyncProcessor.Tests/bin/
+AsyncProcessor.Tests/obj/
