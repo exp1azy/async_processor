@@ -144,5 +144,5 @@ dotnet add package AsyncProcessor
 ```
 or via NuGet Package Manager:
 ```bash
-Install-Package HttpLight
+Install-Package AsyncProcessor
 ```
