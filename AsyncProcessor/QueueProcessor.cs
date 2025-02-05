@@ -13,6 +13,15 @@ namespace AsyncProcessor
         private readonly Lock _lock = new();
         private bool _isProcessing;
 
+
+        /// <summary>
+        /// Enqueues an asynchronous task for execution while ensuring controlled concurrency.
+        /// If no tasks are currently being processed, it starts the processing loop.
+        /// </summary>
+        /// <param name="task">The asynchronous task to be executed.</param>
+        /// <param name="onError">An optional action to handle exceptions during execution.</param>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>A completed task indicating that the task has been enqueued.</returns>
         public Task EnqueueAsync(Func<CancellationToken, Task> task, Action<Exception>? onError = null, CancellationToken cancellationToken = default)
         {
             ParameterValidationHelper.ThrowIfNull(task);

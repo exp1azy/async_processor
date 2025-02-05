@@ -4,6 +4,34 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>AsyncProcessor</Title>
+    <Authors>explazy</Authors>
+    <Description>AsyncProcessor is a .NET library that provides a comprehensive suite of asynchronous utilities designed to simplify and enhance the control over task execution. It includes robust implementations for task throttling to limit how frequently an asynchronous action can execute using a configurable time interval, one-time execution to ensure that a specific asynchronous action is executed only once per unique key, sequential processing to process tasks one after another and guarantee order of execution, concurrency control to manage exclusive access and limit parallel execution with built-in locking mechanisms, and many more. With full support for cancellation tokens and error handling via customizable callbacks, AsyncProcessor leverages .NET primitives like SemaphoreSlim, ConcurrentDictionary, and ConcurrentQueue to provide a safe, efficient, and flexible framework for managing complex asynchronous workflows. This library is ideal for developers seeking to build reliable and responsive applications by simplifying asynchronous task management.</Description>
+    <PackageProjectUrl>https://github.com/exp1azy/async_processor</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/exp1azy/async_processor</RepositoryUrl>
+    <PackageTags>async;task;concurrency;parallel;threading;queue;semaphore;throttling;synchronization;rate-limiting;execution-control;task-runner;async-utilities;background-processing;performance;high-performance;dotnet;csharp;.net;async-programming;parallel-execution;task-scheduler</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<IncludeDocumentationFile>true</IncludeDocumentationFile>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<Version>1.0.1</Version>
+	<PackageReleaseNotes>Documentation added</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

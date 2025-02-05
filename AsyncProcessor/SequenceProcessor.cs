@@ -1,4 +1,6 @@
-﻿namespace AsyncProcessor
+﻿using System.Collections.Concurrent;
+
+namespace AsyncProcessor
 {
     /// <summary>
     /// Provides methods to process tasks in sequence, ensuring that tasks are executed one after another.
@@ -6,7 +8,7 @@
     public static class SequenceProcessor
     {
         private static readonly SemaphoreSlim _sequenceLock = new(1, 1);
-        private static readonly Queue<Func<CancellationToken, Task>> _queue = new();
+        private static readonly ConcurrentQueue<Func<CancellationToken, Task>> _queue = new();
 
         /// <summary>
         /// Enqueues and executes a task in sequence, ensuring that tasks are run one after the other.
