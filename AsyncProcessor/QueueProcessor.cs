@@ -6,13 +6,17 @@ namespace AsyncProcessor
     /// Provides functionality for processing asynchronous tasks in a queue with limited concurrency.
     /// </summary>
     /// <param name="maxConcurrency">The maximum number of concurrent tasks allowed.</param>
-    public class QueueProcessor(int maxConcurrency)
+    public class QueueProcessor
     {
         private readonly ConcurrentQueue<Func<CancellationToken, Task>> _queue = new();
-        private readonly SemaphoreSlim _semaphore = new(maxConcurrency, maxConcurrency);
-        private readonly Lock _lock = new();
+        private readonly SemaphoreSlim _semaphore;
+        private readonly object _lock = new();
         private bool _isProcessing;
 
+        public QueueProcessor(int maxConcurrency)
+        {
+            _semaphore = new(maxConcurrency, maxConcurrency);
+        }
 
         /// <summary>
         /// Enqueues an asynchronous task for execution while ensuring controlled concurrency.
